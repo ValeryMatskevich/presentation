@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>TypeScript</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/blood.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-transition="convex">
+				<h2>What is a TypeScript?</h2>
+				<img src="assets/typescript.png" alt="reveal.js logo"
+					style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				<aside class="notes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad delectus aut provident
+					temporibus facilis reprehenderit, deleniti aliquam sed dignissimos quasi vel ipsum accusantium laborum atque
+					obcaecati fugit facere repellendus illo, ipsa officiis. Rem, iste excepturi sapiente praesentium ut eius
+					accusamus nulla illum fugiat id facilis laboriosam reprehenderit qui, itaque ipsam debitis quis perferendis
+					voluptas. Eaque illo odit hic magni sit officia molestiae? Deleniti vel quas impedit id nemo nobis incidunt
+					aspernatur laudantium ex tempora laboriosam, eum tempore sint iure cupiditate sed ratione animi maxime
+					facilis. Itaque maxime pariatur recusandae dolorum illum obcaecati molestias. Unde explicabo fugiat error,
+					minus qui consequatur?</aside>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Variables</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let name: string = "John";
+				</code></pre>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let age: number = 30;
+					let isStudent: boolean = false
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Named Functions</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function add(x: number, y: number): number {
+						return x + y;
+					}
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Anonymous Functions</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let add = function(x: number, y: number): number {
+						return x + y;
+					};
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Arrays</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let numbers: number[] = [1, 2, 3];
+				</code></pre>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let names: string[] = ["John", "Jane", "Bob"];
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Object Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Person = {
+						name: string;
+						age: number;
+						isStudent: boolean;
+					};
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Enums</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					enum Color {
+						Red = 1,
+						Green = 2,
+						Blue = 3
+					}
+
+					let color: Color = Color.Red;
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Type Aliases</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Point = {
+						x: number;
+						y: number;
+					};
+
+					let p: Point = { x: 1, y: 2 };
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Type Any</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let value: any = "Hello World";
+					value = 42;
+					value = true;
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Module System</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					// file1.ts
+					export function add(x: number, y: number): number {
+						return x + y;
+					}
+
+					// file2.ts
+					import { add } from "./file1";
+					console.log(add(1, 2)); // Output: 3
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Functions as Parameters</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function add(x: number, y: number): number {
+						return x + y;
+					}
+
+					function calculate(x: number, y: number, operation: (a: number, b: number) => number): number {
+						return operation(x, y);
+					}
+
+					console.log(calculate(1, 2, add)); // Output: 3
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Optional Parameters in Functions</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function greet(name: string, greeting?: string): string {
+						if (greeting) {
+							return `${greeting}, ${name}!`;
+						} else {
+							return `Hello, ${name}!`;
+						}
+					}
+
+					console.log(greet("John")); // Output: Hello, John!
+					console.log(greet("John", "Hi")); // Output: Hi, John!
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Void Type</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function log(message: string): void {
+						console.log(message);
+					}
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Never Type (Function Return)</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function error(message: string): never {
+						throw new Error(message);
+					}
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Unknown Type</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let value: unknown = "Hello World";
+					if (typeof value === "string") {
+						console.log(value.toUpperCase());
+					}
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Destructuring</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let person = { name: "John", age: 30 };
+					let { name, age } = person;
+					console.log(name); // Output: John
+					console.log(age); // Output: 30
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Rest and Spread</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function sum(...numbers: number[]) {
+						return numbers.reduce((total, num) => total + num);
+					}
+
+					console.log(sum(1, 2, 3, 4)); // Output: 10
+				</code></pre>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					const numbers = [1, 2, 3, 4];
+					const newNumbers = [...numbers, 5, 6];
+
+					console.log(newNumbers); // Output: [1, 2, 3, 4, 5, 6]
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Function Overloads</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function add(a: number, b: number): number;
+					function add(a: string, b: string): string;
+					function add(a: any, b: any): any {
+						return a + b;
+					}
+
+					console.log(add(1, 2)); // Output: 3
+					console.log(add('Hello', 'World')); // Output: HelloWorld
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Narrowing</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let x: string | number;
+
+					if (typeof x === 'string') {
+						console.log(x.toUpperCase()); // Output: ERROR - Property 'toUpperCase' does not exist on type 'number'.
+					} else {
+						console.log(x.toFixed(2)); // Output: ERROR - Property 'toFixed' does not exist on type 'string'.
+					}
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Type Annotations</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function greet(name: string): string {
+						return Hello, ${name}!;
+					}
+
+					console.log(greet('John')); // Output: Hello, John!
+			</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Multidimensional Arrays</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					const matrix: number[][] = [
+						[1, 2, 3],
+						[4, 5, 6],
+						[7, 8, 9]
+					];
+
+					console.log(matrix[0][0]); // Output: 1
+					console.log(matrix[1][2]); // Output: 6
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Readonly Arrays</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					const numbers: ReadonlyArray<number> = [1, 2, 3];
+
+					numbers.push(4); // ERROR - Property 'push' does not exist on type 'readonly number[]'.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Tuples</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let person: [string, number] = ['John', 30];
+
+					console.log(person[0]); // Output: John
+					console.log(person[1]); // Output: 30
+			</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Types as Sets</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Color = 'red' | 'green' | 'blue';
+
+					let color: Color = 'red'; // Valid
+					color = 'yellow'; // ERROR - Type 'yellow' is not assignable to type 'Color'.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Union Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function printId(id: number | string) {
+						console.log(`ID is ${id}`);
+					}
+
+					printId(123); // Output: ID is 123
+					printId('abc'); // Output: ID is abc
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Null and Undefined</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let x: number | null | undefined;
+
+					x = 1; // Valid
+					x = null; // Valid
+					x = undefined; // Valid
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Literal Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Direction = 'north' | 'south' | 'east' | 'west';
+
+					function move(direction: Direction) {
+						console.log(`Moving ${direction}`);
+					}
+
+					move('north'); // Valid
+					move('up'); // ERROR - Argument of type '"up"' is not assignable to parameter of type 'Direction'
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Intersection Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Person = {
+						name: string;
+						age: number;
+					};
+					type Employee = {
+						id: number;
+						salary: number;
+					};
+					type Manager = Person & Employee;
+					let manager: Manager = {
+						name: 'John',
+						age: 30,
+						id: 123,
+						salary: 50000
+					};
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Value Assignment</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let x: number = 1;
+
+					x = 2;
+
+					console.log(x); // Output: 2
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Type Hierarchy</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					let x: number | string = 'hello';
+
+					console.log(typeof x); // Output: string
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Structural Typing</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					interface Person {
+						name: string;
+						age: number;
+					}
+
+					function greet(person: Person) {
+						console.log(`Hello, ${person.name}!`);
+					}
+
+					let john = { name: 'John', age: 30 };
+
+					greet(john); // Valid
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Classes</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Person {
+						name: string;
+						age: number;
+
+						constructor(name: string, age: number) {
+							this.name = name;
+							this.age = age;
+						}
+						greet() {
+							console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+						}
+					}
+					let john = new Person('John', 30);
+					john.greet(); // Output: Hello, my name is John and I am 30 years old.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Classes as Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Person {
+						name: string;
+						age: number;
+
+						constructor(name: string, age: number) {
+							this.name = name;
+							this.age = age;
+						}
+					}
+
+					let john: Person = new Person('John', 30);
+					
+					console.log(john); // Output: Person { name: 'John', age: 30 }
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Access Modifiers</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Person {
+						public name: string;
+						private age: number;
+						constructor(name: string, age: number) {
+							this.name = name;
+							this.age = age;
+						}
+						greet() {
+							console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+						}
+					}
+					let john = new Person('John', 30);
+					console.log(john.name); // Valid - public
+					console.log(john.age); // ERROR - Property 'age' is private and only accessible within class 'Person'.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Parameter Properties</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Person {
+						constructor(public name: string, private age: number) {}
+
+						greet() {
+							console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+						}
+					}
+
+					let john = new Person('John', 30);
+
+					john.greet(); // Output: Hello, my name is John and I am 30 years old.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Inheritance</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers="|1-11|13-24|26|27-28">
+					class Animal {
+						name: string;
+
+						constructor(name: string) {
+							this.name = name;
+						}
+
+						move(distance: number) {
+							console.log(`${this.name} moved ${distance} meters.`);
+						}
+					}
+
+					class Dog extends Animal {
+						breed: string;
+
+						constructor(name: string, breed: string) {
+							super(name);
+							this.breed = breed;
+						}
+
+						bark() {
+							console.log('Woof! Woof!');
+						}
+					}
+
+					let dog = new Dog('Buddy', 'Golden Retriever');
+					dog.move(10); // Output: Buddy moved 10 meters.
+					dog.bark(); // Output: Woof! Woof!
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Static Methods and Properties</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Calculator {
+						static PI: number = 3.14;
+
+						static add(x: number, y: number) {
+							return x + y;
+						}
+					}
+
+					console.log(Calculator.PI); // Output: 3.14
+					console.log(Calculator.add(2, 3)); // Output: 5
+					</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Abstract Classes</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					abstract class Shape {
+						abstract getArea(): number;
+					}
+
+					class Rectangle extends Shape {
+						width: number;
+						height: number;
+
+						constructor(width: number, height: number) {
+							super();
+							this.width = width;
+							this.height = height;
+						}
+
+						getArea() {
+							return this.width * this.height;
+						}
+					}
+
+					let rect = new Rectangle(5, 10);
+					console.log(rect.getArea()); // Output: 50
+				</code></pre>
+			</section>
+			<section>
+				<section data-transition="convex">
+					<h2>Introduction to Interfaces</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						interface Person {
+							name: string;
+							age: number;
+						}
+
+						let john: Person = {
+							name: 'John',
+							age: 30
+						};
+					</code></pre>
+				</section>
+
+				<section data-transition="convex">
+					<h2>Using Interfaces</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						interface Calculator {
+							add(x: number, y: number): number;
+						}
+
+						let calculator: Calculator = {
+							add(x: number, y: number) {
+								return x + y;
+							}
+						};
+				
+						console.log(calculator.add(2, 3)); // Output: 5
+					</code></pre>
+				</section>
+
+				<section data-transition="convex">
+					<h2>Implementing Interfaces with Classes</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers="|1-5|7-19|21-22">
+						interface Person {
+							name: string;
+							age: number;
+							greet(): void;
+						}
+
+						class Student implements Person {
+							name: string;
+							age: number;
+
+							constructor(name: string, age: number) {
+							this.name = name;
+							this.age = age;
+							}
+
+							greet() {
+								console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+							}
+						}
+
+						let john = new Student('John', 30);
+						john.greet(); // Output: Hello, my name is John and I am 30 years old.
+					</code></pre>
+				</section>
+			</section>
+
+
+
+			<section>
+				<section data-transition="convex">
+					<h2>Introduction to Generics</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						function identity<T>(arg: T): T {
+							return arg;
+						}
+
+						console.log(identity<string>('Hello')); // Output: Hello
+						console.log(identity<number>(42)); // Output: 42
+					</code></pre>
+				</section>
+
+				<section data-transition="convex">
+					<h2>Type Generics</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						function add<T extends number | string>(x: T, y: T): T {
+							return x + y;
+						}
+
+						console.log(add<number>(2, 3)); // Output: 5
+						console.log(add<string>('Hello', 'World')); // Output: HelloWorld
+					</code></pre>
+				</section>
+
+				<section data-transition="convex">
+					<h2>Function Generics</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						function map<T, U>(arr: T[], fn: (item: T) => U): U[] {
+							return arr.map(fn);
+						}
+
+						let nums = [1, 2, 3];
+						let doubled = map<number, number>(nums, (num) => num * 2);
+						console.log(doubled); // Output: [2, 4, 6]
+					</code></pre>
+				</section>
+
+				<section data-transition="convex">
+					<h2>Multiple Parameter Generics</h2>
+					<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+						function zip<T, U>(arr1: T[], arr2: U[]): [T, U][] {
+							return arr1.map((item, i) => [item, arr2[i]]);
+						}
+
+						let names = ['John', 'Jane', 'Bob'];
+						let ages = [30, 25, 40];
+						let people = zip<string, number>(names, ages);
+						console.log(people); // Output: [["John", 30], ["Jane", 25], ["Bob", 40]]
+					</code></pre>
+				</section>
+			</section>
+
+
+			<section data-transition="convex">
+				<h2>Asynchronous Functions</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function delay(ms: number): Promise<void> {
+						return new Promise((resolve) => setTimeout(resolve, ms));
+					}
+
+					async function run() {
+						console.log('Starting...');
+						await delay(2000);
+						console.log('Finished.');
+					}
+
+					run();
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Class Generics</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					class Box<T> {
+						contents: T;
+
+						constructor(contents: T) {
+							this.contents = contents;
+						}
+
+						getContents(): T {
+							return this.contents;
+						}
+					}
+
+					let box = new Box<string>('Hello');
+					console.log(box.getContents()); // Output: Hello
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>The Object Type</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					function log(obj: object) {
+						console.log(obj);
+					}
+
+					log({ name: 'John', age: 30 }); // Output: {name: "John", age: 30}
+					log([1, 2, 3]); // Output: [1, 2, 3]
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Dynamic Keys (Index Signature)</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					interface Dictionary {
+						[key: string]: string;
+					}
+
+					let dict: Dictionary = {
+						'hello': 'world',
+						'goodbye': 'cruel world'
+					};
+
+					console.log(dict['hello']); // Output: world
+
+										</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Mapped Types</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					interface Person {
+						name: string;
+						age: number;
+					}
+
+					type ReadonlyPerson = Readonly<Person>;
+
+					let john: ReadonlyPerson = {
+						name: 'John',
+						age: 30
+					};
+
+					john.name = 'Jane'; // ERROR - Cannot assign to 'name' because it is a read-only property.
+				</code></pre>
+			</section>
+
+			<section data-transition="convex">
+				<h2>Records</h2>
+				<pre data-id="code-animation" class="fragment"><code class="hljs typescript" data-trim data-line-numbers>
+					type Dictionary<T> = {
+						[key: string]: T;
+					};
+
+					let dict: Dictionary<string> = {
+						'hello': 'world',
+						'goodbye': 'cruel world'
+					};
+
+					console.log(dict['hello']); // Output: world
+				</code></pre>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
